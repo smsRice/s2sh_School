@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.School.hibernate.bean.Student" table="Student" >
+        <id name="sid" column="sid" type="java.lang.Long">
+            <generator class="native"/>
+        </id>
+
+        <property name="studentId" column="studentId" type="java.lang.Integer" unique-key="stu"/>
+        <many-to-one name="clazz" column="cid" class="com.School.hibernate.bean.Clazz" unique-key="stu" cascade="all"/>
+
+        <property name="name" column="name" type="java.lang.String"/>
+        <property name="age" column="age" type="java.lang.Integer"/>
+        <property name="score" column="score" type="java.lang.Double"/>
+        <property name="studentDesc" column="studentDesc" type="java.lang.String"/>
+
+    </class>
+
+</hibernate-mapping>

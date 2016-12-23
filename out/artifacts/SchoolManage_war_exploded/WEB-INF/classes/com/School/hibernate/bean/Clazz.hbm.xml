@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.School.hibernate.bean.Clazz" table="Clazz">
+        <id name="cid" column="cid" type="java.lang.Long">
+            <generator class="native"/>
+        </id>
+
+        <property name="classDesc" column="classDesc" type="java.lang.String"/>
+
+        <property name="clazzNo" column="clazzNo" type="java.lang.Integer" unique-key="cla"/>
+        <many-to-one name="grade" column="gid" cascade="all" unique-key="cla"/>
+
+        <set name="students" cascade="all" lazy="false">
+            <key column="cid"/>
+            <one-to-many class="com.School.hibernate.bean.Student"/>
+        </set>
+
+        <set name="teachers" cascade="all" lazy="false" table="Class_Teacher">
+            <key column="cid"/>
+            <many-to-many class="com.School.hibernate.bean.Teacher" column="tid"/>
+        </set>
+    </class>
+</hibernate-mapping>

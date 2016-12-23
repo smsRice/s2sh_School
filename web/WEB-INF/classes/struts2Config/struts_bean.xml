@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="student" extends="struts-global" namespace="/">
+        <action name="studentAction_*" class="com.School.action.studentAction" method="{1}">
+            <result name="success">index.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>
+    </package>
+
+    <package name="struts-global" namespace="/" extends="struts-default">
+        <global-results>
+            <result name="errHandler" type="chain">
+                <param name="actionName">errorProcessor</param>
+            </result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception"
+                               result="errHandler"/>
+        </global-exception-mappings>
+
+        <action name="errorProcessor" class="com.School.action.ErrorAction">
+            <result name="error">error.jsp</result>
+        </action>
+    </package>
+</struts>

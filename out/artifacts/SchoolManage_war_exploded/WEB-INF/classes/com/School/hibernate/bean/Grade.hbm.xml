@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.School.hibernate.bean.Grade" table="Grade">
+        <id name="gid" column="gid" type="java.lang.Long">
+            <generator class="native"/>
+        </id>
+
+        <property name="gradeId" column="gradeId" type="java.lang.Integer" unique-key="gra"/>
+        <property name="gradeDesc" column="gradeDesc" type="java.lang.String"/>
+
+        <set name="classes" cascade="all" lazy="false">
+            <key column="gid"/>
+            <one-to-many class="com.School.hibernate.bean.Clazz"/>
+        </set>
+    </class>
+</hibernate-mapping>
