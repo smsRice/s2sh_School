@@ -11,6 +11,6 @@
     <title>$Title$</title>
 </head>
 <body>
-$END$
+<%@include file="jsp.show/home.jsp"%>
 </body>
 </html>

@@ -10,6 +10,8 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
+    <bean id="student" class="com.School.hibernate.bean.Student" scope="prototype"/>
+
     <bean id="studentDao" class="com.School.spring.dao.impl.StudentDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
@@ -20,5 +22,6 @@
 
     <bean id="studentAction" class="com.School.action.studentAction" scope="prototype">
         <property name="studentService" ref="studentService"/>
+        <property name="student" ref="student"/>
     </bean>
 </beans>

@@ -12,5 +12,182 @@
     <schema id="6" parent="1" name="test"/>
     <schema id="7" parent="1" name="s1"/>
     <schema id="8" parent="1" name="sys"/>
+    <table id="9" parent="2" name="class_teacher"/>
+    <table id="10" parent="2" name="clazz"/>
+    <table id="11" parent="2" name="grade"/>
+    <table id="12" parent="2" name="student"/>
+    <table id="13" parent="2" name="teacher"/>
+    <column id="14" parent="9" name="cid">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="15" parent="9" name="tid">
+      <Position>2</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="16" parent="9" name="FK8roolqj5psntap1xduf13nue9">
+      <ColNames>cid</ColNames>
+    </index>
+    <key id="17" parent="9" name="PRIMARY">
+      <ColNames>tid
+cid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="18" parent="9" name="FK8roolqj5psntap1xduf13nue9">
+      <ColNames>cid</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>clazz</RefTableName>
+      <RefColNames>cid</RefColNames>
+    </foreign-key>
+    <foreign-key id="19" parent="9" name="FKbbfgwvgu24odkg2hw7ba9vgxm">
+      <ColNames>tid</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>teacher</RefTableName>
+      <RefColNames>tid</RefColNames>
+    </foreign-key>
+    <column id="20" parent="10" name="cid">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="21" parent="10" name="classDesc">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="22" parent="10" name="clazzNo">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="23" parent="10" name="gid">
+      <Position>4</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <index id="24" parent="10" name="cla">
+      <ColNames>clazzNo
+gid</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="25" parent="10" name="FKince0vbpfv94wkfsy7utkcf1x">
+      <ColNames>gid</ColNames>
+    </index>
+    <key id="26" parent="10" name="PRIMARY">
+      <ColNames>cid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="27" parent="10" name="cla">
+      <ColNames>clazzNo
+gid</ColNames>
+      <UnderlyingIndexName>cla</UnderlyingIndexName>
+    </key>
+    <foreign-key id="28" parent="10" name="FKince0vbpfv94wkfsy7utkcf1x">
+      <ColNames>gid</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>grade</RefTableName>
+      <RefColNames>gid</RefColNames>
+    </foreign-key>
+    <column id="29" parent="11" name="gid">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="11" name="gradeId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="31" parent="11" name="gradeDesc">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="32" parent="11" name="gra">
+      <ColNames>gradeId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="33" parent="11" name="PRIMARY">
+      <ColNames>gid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="34" parent="11" name="gra">
+      <ColNames>gradeId</ColNames>
+      <UnderlyingIndexName>gra</UnderlyingIndexName>
+    </key>
+    <column id="35" parent="12" name="sid">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="12" name="studentId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="37" parent="12" name="cid">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="38" parent="12" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="39" parent="12" name="age">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="40" parent="12" name="score">
+      <Position>6</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="41" parent="12" name="studentDesc">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="42" parent="12" name="FKe0um9kbc14p7s22pm80e82keb">
+      <ColNames>cid</ColNames>
+    </index>
+    <index id="43" parent="12" name="stu">
+      <ColNames>studentId
+cid</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="44" parent="12" name="PRIMARY">
+      <ColNames>sid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="45" parent="12" name="stu">
+      <ColNames>studentId
+cid</ColNames>
+      <UnderlyingIndexName>stu</UnderlyingIndexName>
+    </key>
+    <foreign-key id="46" parent="12" name="FKe0um9kbc14p7s22pm80e82keb">
+      <ColNames>cid</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>clazz</RefTableName>
+      <RefColNames>cid</RefColNames>
+    </foreign-key>
+    <column id="47" parent="13" name="tid">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="48" parent="13" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="49" parent="13" name="age">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="50" parent="13" name="teacherDesc">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="51" parent="13" name="PRIMARY">
+      <ColNames>tid</ColNames>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>

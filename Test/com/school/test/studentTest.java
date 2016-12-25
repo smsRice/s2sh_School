@@ -16,7 +16,7 @@ public class studentTest extends SpringUtils {
         StudentService studentService = (StudentService) applicationContext.getBean("studentService");
         Student student = new Student();
         student.setStudentDesc("留人");
-        studentService.saveStudent(student);
+//        studentService.saveStudent(student);
     }
     /*
     *   测试action在spring中产生

@@ -8,7 +8,6 @@
     <package name="student" extends="struts-global" namespace="/">
         <action name="studentAction_*" class="com.School.action.studentAction" method="{1}">
             <result name="success">index.jsp</result>
-            <result name="error">index.jsp</result>
         </action>
     </package>
 
